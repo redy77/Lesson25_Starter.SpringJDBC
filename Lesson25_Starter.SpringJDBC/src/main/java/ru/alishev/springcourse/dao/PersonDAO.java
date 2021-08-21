@@ -61,6 +61,13 @@ public class PersonDAO {
     }
 
     public void save(Person person) {
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "INSERT INTO PERSON VALUES(" + 1 + ",'" + person.getName() + "'," +  person.getAge() + ",'" + person.getEmail() + "')";
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 //        person.setId(++PEOPLE_COUNT);
 //        people.add(person);
     }
